@@ -10,6 +10,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
+import subprocess
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel, QTextEdit
 from PySide6.QtGui import QPixmap, QPainter, QColor, QFont
 from PySide6.QtCore import QThread, Signal, Qt
@@ -28,6 +29,28 @@ chrome_options = Options()
 chrome_options.add_argument('--headless')  # Artık başsız modda açar
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--no-sandbox')
+
+def auto_install_and_restart():
+    required = [
+        ("requests", "requests"),
+        ("selenium", "selenium"),
+        ("PySide6", "PySide6")
+    ]
+    missing = []
+    for mod, pip_name in required:
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(pip_name)
+    if missing:
+        print(f"Eksik modüller tespit edildi: {missing}. Yükleniyor...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+        print("Modüller yüklendi. Program yeniden başlatılıyor...")
+        subprocess.Popen([sys.executable] + sys.argv)
+        sys.exit(0)
+
+# Otomatik modül yükleyici
+auto_install_and_restart()
 
 class ModemThread(QThread):
     status_update = Signal(str)
