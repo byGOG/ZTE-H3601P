@@ -26,7 +26,6 @@ Proje deposu: [https://github.com/byGOG/ZTE-H3601P](https://github.com/byGOG/ZTE
 ```bash
 pip install selenium PySide6 requests
 ```
-- `chromedriver.exe` dosyasını proje klasörüne veya PATH'e ekleyin.
 
 ## Kullanım
 ```bash
