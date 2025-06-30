@@ -20,7 +20,6 @@ Proje deposu: [https://github.com/byGOG/ZTE-H3601P](https://github.com/byGOG/ZTE
 - Python 3.8+
 - [Selenium](https://pypi.org/project/selenium/)
 - [PySide6](https://pypi.org/project/PySide6/)
-- Google Chrome ve uygun [chromedriver](https://chromedriver.chromium.org/downloads)
 
 ## Kurulum
 ```bash
