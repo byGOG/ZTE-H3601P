@@ -1,5 +1,9 @@
 # ZTE-H3601P
 
+<p align="center">
+  <img src="https://i.imgur.com/6kdzaN0.png" alt="ZTE-H3601P" width="300"/>
+</p>
+
 ZTE H3601P modemini otomatik olarak yeniden başlatan ve IP değişimini kontrol eden bir Python uygulaması.
 
 ## GitHub
